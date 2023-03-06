@@ -61,9 +61,9 @@ public class CustomerServiceImpl implements CustomerService {
 
 
 		for(Driver driver: driverList){
-			if(driver.getCab().isAvailable()){
-				if(id>driver.getId()){
-					id=driver.getId();
+			if(driver.getCab().getAvailable()){
+				if(id>driver.getDriverId()){
+					id=driver.getDriverId();
 					mainDriver=driver;
 				}
 			}
@@ -79,7 +79,7 @@ public class CustomerServiceImpl implements CustomerService {
 		tripBooking.setFromLocation(fromLocation);
 		tripBooking.setToLocation(toLocation);
 		tripBooking.setDistanceInKm(distanceInKm);
-		tripBooking.setTripStatus(TripStatus.CONFIRMED);
+		tripBooking.setStatus(TripStatus.CONFIRMED);
 
 		tripBooking.setDriver(mainDriver);
 		tripBooking.setCustomer(customerRepository2.findById(customerId).get());
@@ -100,7 +100,7 @@ public class CustomerServiceImpl implements CustomerService {
 
 
 		TripBooking tripBooking=tripBookingRepository2.findById(tripId).get();
-		tripBooking.setTripStatus(TripStatus.CANCELED);
+		tripBooking.setStatus(TripStatus.CANCELED);
 		tripBooking.setBill(0);
 
 		Driver driver=tripBooking.getDriver();
@@ -117,7 +117,7 @@ public class CustomerServiceImpl implements CustomerService {
 	public void completeTrip(Integer tripId){
 		//Complete the trip having given trip Id and update TripBooking attributes accordingly
 		TripBooking tripBooking=tripBookingRepository2.findById(tripId).get();
-		tripBooking.setTripStatus(TripStatus.COMPLETED);
+		tripBooking.setStatus(TripStatus.COMPLETED);
 		//tripBooking.setBill(0);
 
 		Driver driver=tripBooking.getDriver();

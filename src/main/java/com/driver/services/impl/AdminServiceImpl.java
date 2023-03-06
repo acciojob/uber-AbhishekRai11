@@ -30,7 +30,7 @@ public class AdminServiceImpl implements AdminService {
 		//Save the admin in the database
 		Admin admin1=new Admin();
 		admin1.setPassword(admin.getPassword());
-		admin1.setUserName(admin.getUserName());
+		admin1.setUsername(admin.getUsername());
 
 		adminRepository1.save(admin1);
 	}

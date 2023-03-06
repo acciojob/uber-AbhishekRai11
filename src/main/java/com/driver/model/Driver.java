@@ -10,7 +10,7 @@ public class Driver {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int driverId;
 
     private String mobile;
 
@@ -26,12 +26,12 @@ public class Driver {
     public Driver() {
     }
 
-    public int getId() {
-        return id;
+    public int getDriverId() {
+        return driverId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setDriverId(int driverId) {
+        this.driverId = driverId;
     }
 
     public String getMobile() {
