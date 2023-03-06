@@ -69,6 +69,9 @@ public class CustomerServiceImpl implements CustomerService {
 			}
 
 		}
+		if(mainDriver==null){
+			throw new Exception("No cab available!");
+		}
 
 		mainDriver.getCab().setAvailable(false);
 
