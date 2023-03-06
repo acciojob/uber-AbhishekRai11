@@ -61,14 +61,23 @@ public class AdminServiceImpl implements AdminService {
 	public List<Driver> getListOfDrivers() {
 		//Find the list of all drivers
 
-		return driverRepository1.findAll();
+		List<Driver> driverList= driverRepository1.findAll();
+		if(driverList==null){
+			return null;
+		}
+		return driverList;
 
 	}
 
 	@Override
 	public List<Customer> getListOfCustomers() {
 		//Find the list of all customers
-		return customerRepository1.findAll();
+		List<Customer> customerList= customerRepository1.findAll();
+		if(customerList==null){
+			return null;
+
+		}
+		return customerList;
 
 	}
 
